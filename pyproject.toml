@@ -1,0 +1,21 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "wordle"
+version = "0.0.1"
+authors = [
+  { name="Janusz Lenar", email="malleor@gmail.com" },
+]
+description = "A toy to play with solving Wordle in numerous ways"
+readme = "readme.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/malleor/wordle-solver-py"
