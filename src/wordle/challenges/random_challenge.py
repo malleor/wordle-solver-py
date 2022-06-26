@@ -9,6 +9,3 @@ class RandomChallenge(Challenge):
 
         word = random.sample(w, 1)[0]
         super().__init__(word)
-
-    def check_guess(self, guess):
-        return super()._check_guess(self.word, guess)
