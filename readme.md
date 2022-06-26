@@ -3,9 +3,7 @@
 Run `python3` and run the challenge like so:
 
 ```
-from wordle.solvers.interactive_solver import InteractiveSolver
-from wordle.challenges.mock_challenge import MockChallenge
-from wordle.main import *
+from wordle import *
 from getpass import getpass
 run_challenge(MockChallenge(getpass('set the challenge word: ')), InteractiveSolver())
 ```
