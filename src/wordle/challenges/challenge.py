@@ -3,8 +3,8 @@ class Challenge():
     WRONG      = '⬜️'
     DISLOCATED = '🟨'
 
-    def __init__(self):
-        pass
+    def __init__(self, word):
+        self.word = word.upper()
 
     def _check_guess(self, word, guess):
         def _check_letter(w, g):
