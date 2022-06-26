@@ -26,3 +26,17 @@ guess the word: SCRAP
 SCRAP ➡️ 🟩🟩🟩🟩🟩
 5
 ```
+
+If you'd rather play alone, you can use a randomly selected challenge word.
+After running `python3`, type:
+
+```
+from wordle import *
+from getpass import getpass
+run_challenge(RandomChallenge(), InteractiveSolver())
+```
+
+### Dictionary
+
+The package uses a 5-letter words dictionary from Bill Cruise, available on
+[Kaggle](https://www.kaggle.com/datasets/bcruise/wordle-valid-words).
