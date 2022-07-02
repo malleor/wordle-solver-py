@@ -42,6 +42,29 @@ from wordle import *
 run_challenge(RandomChallenge(), LetterFreqSolver())
 ```
 
+...which may end up like this:
+
+```
+BASTA ➡️ ⬜⬜🟨🟩⬜
+good_letters {(3, 'T')}
+dislocated_letters [(2, 'S')]
+wrong_letters {'A', 'B'}
+LIFTS ➡️ ⬜⬜⬜🟩🟨
+good_letters {(3, 'T')}
+dislocated_letters [(2, 'S'), (4, 'S')]
+wrong_letters {'A', 'I', 'F', 'L', 'B'}
+SOWTH ➡️ 🟩🟨⬜🟩🟨
+good_letters {(3, 'T'), (0, 'S')}
+dislocated_letters [(2, 'S'), (4, 'S'), (1, 'O'), (4, 'H')]
+wrong_letters {'A', 'I', 'W', 'F', 'L', 'B'}
+SHOTT ➡️ 🟩🟩🟩🟩🟨
+good_letters {(3, 'T'), (1, 'H'), (0, 'S'), (2, 'O')}
+dislocated_letters [(2, 'S'), (4, 'S'), (1, 'O'), (4, 'H'), (4, 'T')]
+wrong_letters {'A', 'I', 'W', 'F', 'L', 'B'}
+SHOTE ➡️ 🟩🟩🟩🟩🟩
+5
+```
+
 ### Dictionary
 
 The package uses a 5-letter words dictionary from Bill Cruise, available on
