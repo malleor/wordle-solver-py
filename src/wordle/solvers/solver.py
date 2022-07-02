@@ -3,4 +3,4 @@ class Solver():
         pass
 
     def guess(self, results):
-        pass
+        raise NotImplementedError
