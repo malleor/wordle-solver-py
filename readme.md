@@ -32,8 +32,14 @@ After running `python3`, type:
 
 ```
 from wordle import *
-from getpass import getpass
 run_challenge(RandomChallenge(), InteractiveSolver())
+```
+
+To test a solver against a random challenge, type:
+
+```
+from wordle import *
+run_challenge(RandomChallenge(), LetterFreqSolver())
 ```
 
 ### Dictionary

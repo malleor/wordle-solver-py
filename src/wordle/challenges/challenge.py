@@ -1,6 +1,6 @@
 class Challenge():
     GOOD       = '🟩'
-    WRONG      = '⬜️'
+    WRONG      = '⬜'
     DISLOCATED = '🟨'
 
     def __init__(self, word):
