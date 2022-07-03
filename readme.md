@@ -43,7 +43,7 @@ To test the letter frequency solver against a random challenge, use:
 
 ```
 challenge = RandomChallenge()
-solver = LetterFreqSolver()
+solver = DictionarySolver_Random()
 ```
 
 ...which may end up like this:
@@ -72,7 +72,7 @@ SHOTE ➡️ 🟩🟩🟩🟩🟩
 ### Running a benchmark
 
 ```
-$ python3 -c "from wordle import *; _ = run_games(RandomChallenge, [LetterFreqSolver])"
+$ python3 -c "from wordle import *; _ = run_games(RandomChallenge, [DictionarySolver_Random])"
 ```
 
 ### Dictionary

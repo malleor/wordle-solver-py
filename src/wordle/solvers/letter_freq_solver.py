@@ -3,7 +3,7 @@ from ..challenges.challenge import Challenge
 import random
 
 
-class LetterFreqSolver(Solver):
+class DictionarySolver(Solver):
     def __init__(self):
         super().__init__()
 
@@ -11,10 +11,13 @@ class LetterFreqSolver(Solver):
         with open('../res/valid_guesses.csv', 'rt') as f:
             self.dictionary = [str.upper(w[:-1]) for w in f.readlines()]
 
+    def _pick_word(self, selection):
+        pass
+
     def guess(self, results, verbose=True):
-        # start with a random guess
+        # pick an initial guess
         if len(results) == 0:
-            return random.sample(self.dictionary, 1)[0]
+            return self._pick_word(self.dictionary)
 
         # understand the current situation
         good_letters = set()
@@ -39,5 +42,13 @@ class LetterFreqSolver(Solver):
         # select candidate words
         candidates = [w for w in self.dictionary if all_good_letters_used(w) and contains_no_wrong_letters(w) and uses_and_moves_all_dislocated(w)]
 
-        # pick a random candidate
-        return random.sample(candidates, 1)[0]
+        # pick a candidate
+        return self._pick_word(candidates)
+
+
+class DictionarySolver_Random(DictionarySolver):
+    def __init__(self):
+        super().__init__()
+
+    def _pick_word(self, selection):
+        return random.sample(selection, 1)[0]
