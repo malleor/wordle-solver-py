@@ -35,7 +35,8 @@ class Game():
 
     def progress(self):
         self.update_num_trials()
-        guess = self.solver.guess(self.results, verbose=self.verbose)
+        guess = self.solver.guess(
+            self.results, self.max_trials, verbose=self.verbose)
         hit = self.challenge.check_guess(guess)
         status = self.check_game_status(hit)
         self.results.append((guess,hit))

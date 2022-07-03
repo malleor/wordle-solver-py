@@ -2,5 +2,5 @@ class Solver():
     def __init__(self):
         pass
 
-    def guess(self, results, verbose=True):
+    def guess(self, results, max_trials, verbose=True):
         raise NotImplementedError
