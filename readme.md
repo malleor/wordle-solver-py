@@ -69,6 +69,12 @@ SHOTE ➡️ 🟩🟩🟩🟩🟩
 5
 ```
 
+### Running a benchmark
+
+```
+$ python3 -c "from wordle import *; _ = run_games(RandomChallenge, [LetterFreqSolver])"
+```
+
 ### Dictionary
 
 The package uses a 5-letter words dictionary from Bill Cruise, available on

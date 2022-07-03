@@ -5,3 +5,4 @@ from .challenges.mock_challenge import MockChallenge
 from .challenges.random_challenge import RandomChallenge
 
 from .game import Game
+from .benchmark import run_games

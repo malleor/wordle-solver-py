@@ -1,15 +1,17 @@
 from .challenges.challenge import Challenge
+
 class Game():
     CONTINUE = 'continue'
     FAILED = 'failed'
     WIN = 'win'
 
-    def __init__(self, challenge, solver, max_trials=6):
+    def __init__(self, challenge, solver, max_trials=6, verbose=True):
         self.max_trials = max_trials
         self.num_trials = 0
         self.results = []
         self.challenge = challenge
         self.solver = solver
+        self.verbose = verbose
 
     def get_max_trials(self):
         return self.max_trials
@@ -33,7 +35,7 @@ class Game():
 
     def progress(self):
         self.update_num_trials()
-        guess = self.solver.guess(self.results)
+        guess = self.solver.guess(self.results, verbose=self.verbose)
         hit = self.challenge.check_guess(guess)
         status = self.check_game_status(hit)
         self.results.append((guess,hit))
@@ -43,12 +45,15 @@ class Game():
         while True:
             status, guess, hit = self.progress()
 
-            print(guess, '➡️', ''.join(hit))
+            if self.verbose:
+                print(guess, '➡️', ''.join(hit))
             if status==self.WIN:
                 num_trials = self.get_num_trials()
-                print(f'{self.get_num_trials()}/{self.get_max_trials()}')
-                return
+                if self.verbose:
+                    print(f'{self.get_num_trials()}/{self.get_max_trials()}')
+                return self.get_num_trials()
             elif status==self.FAILED:
-                print(self.reveal())
-                print(f'X/{self.get_max_trials()}')
+                if self.verbose:
+                    print(self.reveal())
+                    print(f'X/{self.get_max_trials()}')
                 return

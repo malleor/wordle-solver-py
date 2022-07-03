@@ -11,7 +11,7 @@ class LetterFreqSolver(Solver):
         with open('../res/valid_guesses.csv', 'rt') as f:
             self.dictionary = [str.upper(w[:-1]) for w in f.readlines()]
 
-    def guess(self, results):
+    def guess(self, results, verbose=True):
         # start with a random guess
         if len(results) == 0:
             return random.sample(self.dictionary, 1)[0]
@@ -28,9 +28,10 @@ class LetterFreqSolver(Solver):
                     dislocated_letters.append((i,g[i]))
                 elif h[i] == Challenge.WRONG:
                     wrong_letters.add(g[i])
-        print('good_letters', good_letters)
-        print('dislocated_letters', dislocated_letters)
-        print('wrong_letters', wrong_letters)
+        if verbose:
+            print('good_letters', good_letters)
+            print('dislocated_letters', dislocated_letters)
+            print('wrong_letters', wrong_letters)
         all_good_letters_used = lambda w: all([(w[i] == c) for i, c in good_letters])
         contains_no_wrong_letters = lambda w: all([(c not in w) for c in wrong_letters])
         uses_and_moves_all_dislocated = lambda w: all([(c in w and w[i] != c) for i, c in dislocated_letters])
