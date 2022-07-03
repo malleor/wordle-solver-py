@@ -72,7 +72,7 @@ SHOTE ➡️ 🟩🟩🟩🟩🟩
 ### Running a benchmark
 
 ```
-$ python3 -c "from wordle import *; _ = run_games(RandomChallenge, [DictionarySolver_Random])"
+$ python3 -c "from wordle import *; _ = run_games(RandomChallenge, [DictionarySolver_Random, DictionarySolver_LetterFreq])"
 ```
 
 ### Dictionary
