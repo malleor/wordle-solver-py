@@ -1,18 +1,23 @@
 ### How to play the game in a terminal?
 
-Run `python3` and run the challenge like so:
+Run `python3` and run the game like so:
 
 ```
 from wordle import *
 from getpass import getpass
-run_challenge(MockChallenge(getpass('set the challenge word: ')), InteractiveSolver())
+
+challenge = MockChallenge(getpass('set the challenge word: '))
+solver = InteractiveSolver()
+game = Game(challenge, solver, max_trials=6)
+
+game.run()
 ```
 
 After the prompt, ask someone to type in the challenge word and start solving the puzzle.
 It may look like this:
 
 ```
->>> run_challenge(MockChallenge(getpass('set the challenge word: ')), InteractiveSolver())
+>>> game.run()
 set the challenge word:
 guess the word: FINER
 FINER ➡️ ⬜️⬜️⬜️⬜️🟨
@@ -28,18 +33,17 @@ SCRAP ➡️ 🟩🟩🟩🟩🟩
 ```
 
 If you'd rather play alone, you can use a randomly selected challenge word.
-After running `python3`, type:
+For this end, use
 
 ```
-from wordle import *
-run_challenge(RandomChallenge(), InteractiveSolver())
+challenge = RandomChallenge()
 ```
 
-To test a solver against a random challenge, type:
+To test the letter frequency solver against a random challenge, use:
 
 ```
-from wordle import *
-run_challenge(RandomChallenge(), LetterFreqSolver())
+challenge = RandomChallenge()
+solver = LetterFreqSolver()
 ```
 
 ...which may end up like this:
