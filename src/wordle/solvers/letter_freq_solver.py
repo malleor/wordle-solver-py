@@ -59,12 +59,11 @@ class DictionarySolver_LetterFreq(DictionarySolver):
     def __init__(self):
         super().__init__()
 
+    def _pick_word(self, selection):
         # calculate word scores based on letter frequency
         stats = {l: [0]*5 for l in string.ascii_uppercase}
-        for w in self.dictionary:
+        for w in selection:
             for i, c in enumerate(w):
                 stats[c][i] += 1
-        self.word_scores = {w: sum([stats[c][i] for i, c in enumerate(w)]) for w in self.dictionary}
-
-    def _pick_word(self, selection):
-        return sorted([(w, self.word_scores[w]) for w in selection], key=lambda x: -x[1])[0][0]
+        word_scores = {w: sum([stats[c][i] for i, c in enumerate(w)]) for w in selection}
+        return sorted([(w, word_scores[w]) for w in selection], key=lambda x: -x[1])[0][0]
