@@ -15,7 +15,7 @@ class DictionarySolver(Solver):
     def _pick_word(self, selection):
         pass
 
-    def guess(self, results, verbose=True):
+    def guess(self, results, max_trials, verbose=True):
         # pick an initial guess
         if len(results) == 0:
             return self._pick_word(self.dictionary)
