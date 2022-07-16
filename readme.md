@@ -77,5 +77,5 @@ $ python3 -c "from wordle import *; _ = run_games(RandomChallenge, [DictionarySo
 
 ### Dictionary
 
-The package uses a 5-letter words dictionary from Bill Cruise, available on
-[Kaggle](https://www.kaggle.com/datasets/bcruise/wordle-valid-words).
+The package uses the [CSW](https://en.wikipedia.org/wiki/Collins_Scrabble_Words) dictionary,
+made available by Bill Cruise on [Kaggle](https://www.kaggle.com/datasets/bcruise/wordle-valid-words).

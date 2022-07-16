@@ -11,6 +11,8 @@ class DictionarySolver(Solver):
         # load the dictionary
         with open('../res/valid_guesses.csv', 'rt') as f:
             self.dictionary = [str.upper(w[:-1]) for w in f.readlines()]
+        with open('../res/valid_solutions.csv', 'rt') as f:
+            self.dictionary += [str.upper(w[:-1]) for w in f.readlines()]
 
     def _pick_word(self, selection):
         pass
